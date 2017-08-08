@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "TyBinaryTree.h"
+#import "TyBinaryTreeNode.h"
 
 @interface ViewController ()
 
@@ -16,12 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSMutableArray *mutArray = [NSMutableArray array];
+    for (int i = 0; i < 20; i ++) {
+        NSInteger sub = arc4random() % 50;
+        [mutArray addObject:@(sub)];
+    }
+    TyBinaryTreeNode *node = [TyBinaryTree createTreeWithValues:[mutArray copy]];
+    __block NSMutableArray *orderArray = [NSMutableArray array];
+    [TyBinaryTree preOrderTraverseTree:node handler:^(TyBinaryTreeNode *treeNode) {
+        [orderArray addObject:@(treeNode.value)];
+        NSLog(@"%@",treeNode);
+    }];
+    NSLog(@"先序遍历结果：%@", [orderArray componentsJoinedByString:@","]);
 }
-
-
-
-
 
 
 - (void)didReceiveMemoryWarning {

@@ -85,10 +85,10 @@
 }
 /* 调用方法
  NSMutableArray *orderArray = [NSMutableArray array];
- [BinaryTree preOrderTraverseTree:root handler:^(BinaryTreeNode *treeNode) {
+ [TyBinaryTree preOrderTraverseTree:root handler:^(BinaryTreeNode *treeNode) {
  [orderArray addObject:@(treeNode.value)];
  }];
- NSLog(@"先序遍历结果：%@", [orderArray componentsJoinedByString:@","]);
+ 
  */
 #pragma mark - 中序遍历
 + (void)inOrderTraverseTree:(TyBinaryTreeNode *)rootNode handler:(void(^)(TyBinaryTreeNode *treeNode))handler {
